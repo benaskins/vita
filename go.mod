@@ -3,10 +3,10 @@ module github.com/benaskins/vita
 go 1.26.1
 
 require (
-	github.com/benaskins/axon-face v0.1.2
-	github.com/benaskins/axon-loop v0.7.3
-	github.com/benaskins/axon-talk v0.6.4
-	github.com/benaskins/axon-tool v0.1.10
+	github.com/benaskins/axon-face v0.0.0
+	github.com/benaskins/axon-loop v0.7.0
+	github.com/benaskins/axon-talk v0.5.1
+	github.com/benaskins/axon-tool v0.1.6
 	github.com/charmbracelet/bubbletea v1.3.10
 )
 
@@ -49,3 +49,11 @@ require (
 	golang.org/x/text v0.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/benaskins/axon-loop => ../../axon-loop
+
+replace github.com/benaskins/axon-talk => ../../axon-talk
+
+replace github.com/benaskins/axon-tool => ../../axon-tool
+
+replace github.com/benaskins/axon-face => ../../axon-face
