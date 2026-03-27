@@ -5,7 +5,7 @@ go 1.26.1
 require (
 	github.com/benaskins/axon-face v0.0.0
 	github.com/benaskins/axon-loop v0.7.0
-	github.com/benaskins/axon-talk v0.5.0
+	github.com/benaskins/axon-talk v0.5.1
 	github.com/benaskins/axon-tool v0.1.6
 	github.com/charmbracelet/bubbletea v1.3.10
 )
@@ -50,4 +50,10 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/benaskins/axon-face => ../lamina/axon-face
+replace github.com/benaskins/axon-loop => ../../axon-loop
+
+replace github.com/benaskins/axon-talk => ../../axon-talk
+
+replace github.com/benaskins/axon-tool => ../../axon-tool
+
+replace github.com/benaskins/axon-face => ../../axon-face
