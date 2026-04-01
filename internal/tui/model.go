@@ -354,7 +354,7 @@ func (m Model) reviseSection(feedback string) tea.Cmd {
 func (m Model) saveDraft() (tea.Model, tea.Cmd) {
 	home, _ := os.UserHomeDir()
 	dir := filepath.Join(home, "Documents", "vita")
-	if err := os.MkdirAll(dir, 0o755); err != nil {
+	if err := os.MkdirAll(dir, 0o750); err != nil {
 		m.Chat.AppendEntry(face.Entry{Role: face.RoleAgent, Content: fmt.Sprintf("Error creating output dir: %v", err)})
 		return m, nil
 	}
@@ -377,7 +377,7 @@ func (m Model) saveDraft() (tea.Model, tea.Cmd) {
 		path = filepath.Join(dir, fmt.Sprintf("%s-%d.md", name, i))
 	}
 
-	if err := os.WriteFile(path, []byte(content), 0o644); err != nil {
+	if err := os.WriteFile(path, []byte(content), 0o600); err != nil {
 		m.Chat.AppendEntry(face.Entry{Role: face.RoleAgent, Content: fmt.Sprintf("Error writing file: %v", err)})
 		return m, nil
 	}

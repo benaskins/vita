@@ -5,6 +5,7 @@ import (
 	"io"
 	"log/slog"
 	"os"
+	"path/filepath"
 
 	tea "github.com/charmbracelet/bubbletea"
 
@@ -53,7 +54,7 @@ func run() error {
 func readInput() (string, error) {
 	// Check for file argument
 	if len(os.Args) > 1 {
-		data, err := os.ReadFile(os.Args[1])
+		data, err := os.ReadFile(filepath.Clean(os.Args[1]))
 		if err != nil {
 			return "", err
 		}
