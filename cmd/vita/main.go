@@ -12,7 +12,7 @@ import (
 	face "github.com/benaskins/axon-face"
 	loop "github.com/benaskins/axon-loop"
 	"github.com/benaskins/axon-talk/anthropic"
-	"github.com/benaskins/axon-talk/ollama"
+	"github.com/benaskins/axon-talk/openai"
 
 	"github.com/benaskins/vita/internal/tui"
 )
@@ -85,13 +85,10 @@ func selectClient() (loop.LLMClient, string) {
 		return client, envOrDefault("VITA_MODEL", "claude-sonnet-4-6")
 	}
 
-	// Fall back to Ollama
-	client, err := ollama.NewClientFromEnvironment()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "no LLM available — set ANTHROPIC_API_KEY or run Ollama\n")
-		os.Exit(1)
-	}
-	slog.Info("using Ollama for inference")
+	// Fall back to local OpenAI-compatible server (llama-server, vllm-mlx, etc.)
+	baseURL := envOrDefault("OPENAI_BASE_URL", "http://localhost:8080")
+	client := openai.NewClient(baseURL, "")
+	slog.Info("using OpenAI-compatible server", "url", baseURL)
 	return client, envOrDefault("VITA_MODEL", "qwen3:32b")
 }
 
