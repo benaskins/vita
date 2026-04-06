@@ -7,7 +7,7 @@
 
 ## Constraints
 - Composition root — assembles axon-face, axon-loop, axon-talk, axon-tool
-- Uses local replace directives during development (managed by `lamina apps wire`)
+- Uses go.work for local module resolution during development
 - Do not add HTTP server code — this is a CLI app, not a service
 - Do not import axon (server toolkit) directly
 - No justfile yet — use go commands directly

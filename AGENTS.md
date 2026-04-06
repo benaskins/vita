@@ -29,4 +29,4 @@ internal/tui/           Bubble Tea model, interview and draft phases
 - axon-tool (tool definitions)
 - bubbletea, lipgloss, bubbles (TUI)
 
-All axon modules use local `replace` directives during development.
+Local module resolution is handled by go.work at the lamina workspace root.
